@@ -1,0 +1,25 @@
+{# templates/lucky/number.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="{{ asset('css/contact.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <h1>List</h1>
+    <ul>
+        {% for item in array %}
+            <li>{{ item }} - <a href="{{ path('show_number', {'number': item}) }}">show</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ path('articles', {'_locale':'pt', 'year':'2010', 'slug':'teste'}) }}">Brand new</a>
+    <img src="{{ asset('images/logo.png') }}" alt="Symfony!" />
+    {#<p>Username: {{ app.user.username }}</p>#}
+    {% if app.debug %}
+        <p>Request method: {{ app.request.method }}</p>
+        <p>Application Environment: {{ app.environment }}</p>
+    {% endif %}
+{% endblock %}
+
